@@ -65,6 +65,19 @@ def remove_stock(item_id):
     conn.close()
     return redirect("/")
 
+# 商品削除
+@app.route("/delete_item/<int:item_id>")
+def delete_item(item_id):
+    conn = get_db()
+    conn.execute(
+        "DELETE FROM items WHERE id = ?",
+        (item_id,)
+    )
+    conn.commit()
+    conn.close()
+
+    return redirect("/")
+
 # サーバー起動
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, port=5001)

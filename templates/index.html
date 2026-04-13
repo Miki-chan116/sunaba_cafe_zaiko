@@ -1,29 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>在庫管理</title>
 </head>
 <body>
     <h1>在庫管理アプリ</h1>
 
-<h2>商品登録</h2>
+    <h2>商品登録</h2>
 
-<form action="/add_item" method="POST">
-    <input type="text" name="name" placeholder="商品名">
-    <button type="submit">追加</button>
-    
-</form>
+    <form action="/add_item" method="POST">
+        <input type="text" name="name" placeholder="商品名" required>
+        <button type="submit">追加</button>
+    </form>
 
-<h2>商品一覧</h2>
-<ul>
-    {% for item in items %}
-        <li>
-            {{ item["name"] }}
-            {{ item["stock_quantity"] }}
-           <button onclick="location.href='/add_stock/{{ item.id }}'">＋</button>
-           <button onclick="location.href='/remove_stock/{{ item.id }}'">−</button>
+    <h2>商品一覧</h2>
+
+    <ul>
+        {% for item in items %}
+        <li style="{% if item['stock_quantity'] == 0 %}color:red;{% endif %}">
+            
+            {{ item["name"] }}：{{ item["stock_quantity"] }}
+
+            <button onclick="location.href='/add_stock/{{ item.id }}'">＋</button>
+
+            <button onclick="location.href='/remove_stock/{{ item.id }}'">−</button>
+
+            <a href="/delete_item/{{ item.id }}"
+               onclick="return confirm('本当に削除しますか？')">
+               🗑 削除
+            </a>
+
         </li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+
 </body>
 </html>
