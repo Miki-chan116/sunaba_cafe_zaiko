@@ -32,6 +32,38 @@ def add_item():
     conn.close()
 
     return redirect("/")
+# 在庫を増やす
+@app.route("/add_stock/<int:item_id>")
+def add_stock(item_id):
+    conn = get_db()
+    conn.execute(
+        "UPDATE items SET stock_quantity = stock_quantity + 1 WHERE id = ?",
+        (item_id,)
+    )
+    conn.commit()
+    conn.close()
+
+    return redirect("/")
+
+# 在庫を減らす
+@app.route("/remove_stock/<int:item_id>")
+def remove_stock(item_id):
+    conn = get_db()
+
+    item = conn.execute(
+        "SELECT stock_quantity FROM items WHERE id = ?",
+        (item_id,)
+    ).fetchone()
+
+    if item["stock_quantity"] > 0:
+        conn.execute(
+            "UPDATE items SET stock_quantity = stock_quantity - 1 WHERE id = ?",
+            (item_id,)
+        )
+        conn.commit()
+
+    conn.close()
+    return redirect("/")
 
 # サーバー起動
 if __name__ == "__main__":
