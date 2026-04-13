@@ -2,38 +2,69 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>在庫管理</title>
+    <title>カフェ在庫管理</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>在庫管理アプリ</h1>
 
-    <h2>商品登録</h2>
+<h1>☕ カフェ在庫管理</h1>
 
-    <form action="/add_item" method="POST">
-        <input type="text" name="name" placeholder="商品名" required>
-        <button type="submit">追加</button>
-    </form>
+<!-- ナビ -->
+<p>
+    <a href="/history">📜 履歴を見る</a>
+</p>
 
-    <h2>商品一覧</h2>
+<h2>商品登録</h2>
 
-    <ul>
-        {% for item in items %}
-        <li style="{% if item['stock_quantity'] == 0 %}color:red;{% endif %}">
-            
+<form action="/add_item" method="POST">
+    <input type="text" name="name" placeholder="商品名を入力" required>
+    <button type="submit">追加</button>
+</form>
+
+<h2>検索</h2>
+
+<form method="GET">
+    <input type="text" name="search" placeholder="商品を検索">
+    <button type="submit">検索</button>
+</form>
+
+<h2>商品一覧</h2>
+
+<ul>
+    {% for item in items %}
+    <li class="card {% if item['stock_quantity'] <= 3 %}low-stock{% endif %}">
+
+        <span>
             {{ item["name"] }}：{{ item["stock_quantity"] }}
+        </span>
 
-            <button onclick="location.href='/add_stock/{{ item.id }}'">＋</button>
+        <div class="buttons">
 
-            <button onclick="location.href='/remove_stock/{{ item.id }}'">−</button>
+            <button onclick="location.href='/add_stock/{{ item.id }}'">
+                ＋
+            </button>
+
+            {% if item["stock_quantity"] > 0 %}
+            <button onclick="location.href='/remove_stock/{{ item.id }}'">
+                −
+            </button>
+            {% else %}
+            <button disabled>−</button>
+            {% endif %}
+
+            <a href="/edit_item/{{ item.id }}">✏️</a>
 
             <a href="/delete_item/{{ item.id }}"
-               onclick="return confirm('本当に削除しますか？')">
-               🗑 削除
+               onclick="return confirm('本当に削除しますか？（戻せません）')">
+                🗑
             </a>
 
-        </li>
-        {% endfor %}
-    </ul>
+        </div>
+
+    </li>
+    {% endfor %}
+</ul>
 
 </body>
 </html>

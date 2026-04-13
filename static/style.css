@@ -1,0 +1,176 @@
+body {
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    background: #f7f5ff; /* パステルラベンダー */
+    margin: 0;
+    padding: 20px;
+    color: #4b4b4b;
+}
+
+h1 {
+    text-align: center;
+    color: #6c63ff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #5f6caf;
+    border-left: 6px solid #a3bffa;
+    padding-left: 10px;
+    margin-top: 30px;
+}
+
+form {
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+    max-width: 420px;
+}
+
+input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #a3bffa;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: 0.2s;
+}
+
+/* ＋ボタン（ミント） */
+button:nth-of-type(1) {
+    background: #a8e6cf;
+    color: #2d6a4f;
+}
+
+/* −ボタン（ライトオレンジ） */
+button:nth-of-type(2) {
+    background: #ffd6a5;
+    color: #7a4e1d;
+}
+
+/* 削除ボタン */
+a {
+    background: #ffadad;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li {
+    background: #ffffff;
+    margin-bottom: 12px;
+    padding: 14px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    transition: 0.2s;
+}
+
+li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* 在庫0はうっすら */
+li[style*="opacity"] {
+    opacity: 0.5;
+}
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f5ff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #6c63ff;
+}
+
+form {
+    background: white;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    max-width: 500px;
+}
+
+input {
+    padding: 8px;
+    width: 70%;
+}
+
+button {
+    padding: 6px 10px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* カード */
+.card {
+    background: white;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+}
+
+/* 在庫少ない */
+.low-stock {
+    border-left: 6px solid #ffb703;
+}
+
+/* ボタン */
+.buttons button:nth-child(1) {
+    background: #a8e6cf;
+}
+
+.buttons button:nth-child(2) {
+    background: #ffd6a5;
+}
+
+.buttons a {
+    background: #ffadad;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 8px;
+    text-decoration: none;
+}
