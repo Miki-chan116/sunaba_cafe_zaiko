@@ -1,176 +1,121 @@
 body {
     font-family: "Helvetica Neue", Arial, sans-serif;
-    background: #f7f5ff; /* パステルラベンダー */
+    background: #f6f1eb; /* コーヒー豆っぽいベージュ */
     margin: 0;
     padding: 20px;
-    color: #4b4b4b;
+    color: #3b2f2a;
 }
 
+/* タイトル */
 h1 {
     text-align: center;
-    color: #6c63ff;
-    margin-bottom: 20px;
-    font-weight: bold;
+    color: #5a3e36;
+    font-size: 28px;
+    margin-bottom: 10px;
 }
 
+/* セクション */
 h2 {
-    color: #5f6caf;
-    border-left: 6px solid #a3bffa;
+    color: #6b4f3f;
+    border-left: 6px solid #c49a6c;
     padding-left: 10px;
-    margin-top: 30px;
+    margin-top: 25px;
 }
 
+/* 入力フォーム */
 form {
-    background: #ffffff;
+    background: #fffaf5;
     padding: 15px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    margin-bottom: 20px;
-    max-width: 420px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    max-width: 500px;
+    margin-bottom: 15px;
 }
 
+/* 入力欄 */
 input {
     padding: 10px;
     width: 70%;
-    border: 1px solid #ddd;
+    border: 1px solid #e0d6cc;
     border-radius: 10px;
     outline: none;
+    background: #fff;
 }
 
 input:focus {
-    border-color: #a3bffa;
+    border-color: #c49a6c;
 }
 
+/* ボタン共通 */
 button {
-    padding: 6px 12px;
+    padding: 7px 12px;
     border: none;
     border-radius: 10px;
     cursor: pointer;
     margin-left: 5px;
-    transition: 0.2s;
+    font-weight: bold;
 }
 
-/* ＋ボタン（ミント） */
+/* ＋ボタン（抹茶グリーン） */
 button:nth-of-type(1) {
-    background: #a8e6cf;
-    color: #2d6a4f;
+    background: #a8c3a0;
+    color: #1f3b2c;
 }
 
-/* −ボタン（ライトオレンジ） */
+/* −ボタン（カフェオレンジ） */
 button:nth-of-type(2) {
-    background: #ffd6a5;
-    color: #7a4e1d;
+    background: #e7b07a;
+    color: #5a3e36;
 }
 
 /* 削除ボタン */
 a {
-    background: #ffadad;
+    background: #d96c6c;
     color: white;
-    padding: 5px 10px;
+    padding: 6px 10px;
     border-radius: 10px;
     text-decoration: none;
     margin-left: 5px;
-    font-size: 14px;
+    font-size: 13px;
 }
 
+/* リスト全体 */
 ul {
     list-style: none;
     padding: 0;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-li {
-    background: #ffffff;
-    margin-bottom: 12px;
-    padding: 14px;
-    border-radius: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-    transition: 0.2s;
-}
-
-li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 14px rgba(0,0,0,0.08);
-}
-
-/* 在庫0はうっすら */
-li[style*="opacity"] {
-    opacity: 0.5;
-}
-body {
-    font-family: Arial, sans-serif;
-    background: #f7f5ff;
-    margin: 0;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-    color: #6c63ff;
-}
-
-form {
-    background: white;
-    padding: 12px;
-    border-radius: 12px;
-    margin-bottom: 15px;
-    max-width: 500px;
-}
-
-input {
-    padding: 8px;
-    width: 70%;
-}
-
-button {
-    padding: 6px 10px;
-    margin-left: 5px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-    max-width: 600px;
+    max-width: 700px;
     margin: auto;
 }
 
-/* カード */
+/* カード（超重要） */
 .card {
-    background: white;
+    background: #fffaf5;
     margin: 10px 0;
-    padding: 12px;
-    border-radius: 14px;
+    padding: 14px 16px;
+    border-radius: 16px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: 0.2s;
+    border: 1px solid #f0e6dd;
 }
 
-/* 在庫少ない */
+/* ホバーで少し浮く */
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* 在庫少ないとき */
 .low-stock {
-    border-left: 6px solid #ffb703;
+    border-left: 6px solid #e6a23c;
+    background: #fff3e6;
 }
 
-/* ボタン */
-.buttons button:nth-child(1) {
-    background: #a8e6cf;
-}
-
-.buttons button:nth-child(2) {
-    background: #ffd6a5;
-}
-
-.buttons a {
-    background: #ffadad;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 8px;
-    text-decoration: none;
+/* ボタンエリア */
+.buttons {
+    display: flex;
+    gap: 6px;
+    align-items: center;
 }
