@@ -119,3 +119,14 @@ ul {
     gap: 6px;
     align-items: center;
 }
+
+/* ログイン画面中央寄せ */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    text-align: center;
+}
